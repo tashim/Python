@@ -4,9 +4,9 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter.ttk import Combobox
 
-from Console import Concole, LOG, LOGR
+from  Console import  *
 from SQLLDB import *
-from dev_socket import dev_socket, noprnt
+from dev_socket import *
 
 vDfWait = 3
 vLoop = 1
