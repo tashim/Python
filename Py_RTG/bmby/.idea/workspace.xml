@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3cb05756-17ea-40e0-9da0-6eb4ece3d6d0" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XRHdJ2L7eTp0Yc2HTR0vwpshNT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\Python\bmby\contract" />
+      <recent name="C:\Projects\Python\bmby" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.s2">
+    <configuration name="DB" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmby" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DB.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bmby (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmby" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bmby.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bmby_all_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bmby" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bmby_all_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="s2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmby" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bmby_tasks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server_down" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmby" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server_down.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.bmby (1)" />
+      <item itemvalue="Python.server_down" />
+      <item itemvalue="Python.s2" />
+      <item itemvalue="Python.DB" />
+      <item itemvalue="Python.bmby_all_client" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.s2" />
+        <item itemvalue="Python.bmby_all_client" />
+        <item itemvalue="Python.server_down" />
+        <item itemvalue="Python.bmby (1)" />
+        <item itemvalue="Python.DB" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cb05756-17ea-40e0-9da0-6eb4ece3d6d0" name="Default" comment="" />
+      <created>1548938738816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548938738816</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="634" y="137" width="642" height="766" key="#server_down" timestamp="1581263179758">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="634" y="137" width="642" height="766" key="#server_down/0.27.1920.988@0.27.1920.988" timestamp="1581263179758" />
+    <state x="623" y="270" width="424" height="484" key="FileChooserDialogImpl" timestamp="1581342600244">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state x="623" y="270" width="424" height="484" key="FileChooserDialogImpl/0.27.1680.972@0.27.1680.972" timestamp="1581342600244" />
+    <state width="1657" height="252" key="GridCell.Tab.0.bottom" timestamp="1581418783529">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state width="1657" height="252" key="GridCell.Tab.0.bottom/0.27.1680.972@0.27.1680.972" timestamp="1581418783529" />
+    <state width="750" height="837" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1581263794884" />
+    <state width="1657" height="252" key="GridCell.Tab.0.center" timestamp="1581418783528">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state width="1657" height="252" key="GridCell.Tab.0.center/0.27.1680.972@0.27.1680.972" timestamp="1581418783528" />
+    <state width="750" height="837" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1581263794883" />
+    <state width="1657" height="252" key="GridCell.Tab.0.left" timestamp="1581418783528">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state width="1657" height="252" key="GridCell.Tab.0.left/0.27.1680.972@0.27.1680.972" timestamp="1581418783528" />
+    <state width="750" height="837" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1581263794882" />
+    <state width="1657" height="252" key="GridCell.Tab.0.right" timestamp="1581418783528">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state width="1657" height="252" key="GridCell.Tab.0.right/0.27.1680.972@0.27.1680.972" timestamp="1581418783528" />
+    <state width="750" height="837" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1581263794883" />
+    <state width="1874" height="317" key="GridCell.Tab.1.bottom" timestamp="1581005961565">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="317" key="GridCell.Tab.1.bottom/0.27.1920.988@0.27.1920.988" timestamp="1581005961565" />
+    <state width="1874" height="317" key="GridCell.Tab.1.center" timestamp="1581005961564">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="317" key="GridCell.Tab.1.center/0.27.1920.988@0.27.1920.988" timestamp="1581005961564" />
+    <state width="1874" height="317" key="GridCell.Tab.1.left" timestamp="1581005961564">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="317" key="GridCell.Tab.1.left/0.27.1920.988@0.27.1920.988" timestamp="1581005961564" />
+    <state width="1874" height="317" key="GridCell.Tab.1.right" timestamp="1581005961565">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="317" key="GridCell.Tab.1.right/0.27.1920.988@0.27.1920.988" timestamp="1581005961565" />
+    <state x="393" y="153" key="SettingsEditor" timestamp="1581414832196">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state x="393" y="153" key="SettingsEditor/0.27.1680.972@0.27.1680.972" timestamp="1581414832196" />
+    <state x="449" y="155" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1581263720390" />
+    <state x="496" y="340" key="com.intellij.ide.util.TipDialog" timestamp="1581342441143">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state x="496" y="340" key="com.intellij.ide.util.TipDialog/0.27.1680.972@0.27.1680.972" timestamp="1581342441143" />
+    <state x="565" y="399" width="540" height="225" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1581413112956">
+      <screen x="0" y="27" width="1680" height="972" />
+    </state>
+    <state x="565" y="399" width="540" height="225" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1680.972@0.27.1680.972" timestamp="1581413112956" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/contract/DB.py</url>
+          <line>218</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="result" language="Python" />
+        <watch expression="list" language="Python" />
+        <watch expression="data" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>data</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>list</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>result</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>

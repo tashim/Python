@@ -1,0 +1,4 @@
+2020-02-11 11:30:24.921951 | update all 45.83.43.173
+2020-02-11 11:30:32.208829 |   last 1113340606 | 1112000000 | 3000
+2020-02-11 11:30:38.042618 | <class 'pymysql.err.Error'>
+ UPDATE Individual SET  gender ='',EntryDate ='2018-09-28',b_entryID ='1113150596',FirstName ='Guy Marom • Personal Trainer',LastName ='Personal Trainer',Phone1 ='0509613869',Email ='guymarom24@gmail.com',DateOfBirth ='16/03/1994',ContactType ='129',TaskOf ='507',Activities ='224',allowed_sms ='1',relevant ='1',company_id ='0'where entryID='1015653';

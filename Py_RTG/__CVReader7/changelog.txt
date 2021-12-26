@@ -1,0 +1,68 @@
+CVReader changelog file
+
+Description:
+Windows program made to read specified content(AKA Individual CV info) from text files(AKA txt, doc, docx and pdf).
+The info then sent to a specified database(AKA RTG smartcv database) and fills the corresponding fields.
+The fields:
+ - First and last name.
+ - Phone number
+ - Email
+ - Whole CV text
+ - Skills (deprecated)
+
+The program also has  a window to list all the database fields of the individual (deprecated)
+Search Option with filtering available (deprecated)
+
+Workflow of the app includes:
+Search folder option or write the path by yourself
+Count the number of available files to read
+Save content to the DB
+Count the saved files to the DB
+Move files to a corresponding folder (AKA Passed[files saved to the DB] and not passed[files which was not saved to the DB])
+
+V1:
+
+-- Init release
+
+V2 - V7:
+
+-- Deleted Skills search
+-- Deleted show database window
+--- Deleted search and filter options
+-- DB connection window will not affect anything anymore
+-- Minor not recorded changes
+
+V8:
+
+-- Added check function before saving to DB
+--- Checks if there is already such entry in the DB before saving (using phone number)
+---- if so update the entry
+---- else save new entry
+
+V9:
+
+-- Improved phone scanner to remove '-' char from the number if exists
+
+
+V10:
+
+-- Another update to the check function
+--- if the individual were in the DB for over a year when adding his CV again
+---- change his status to new
+---- add new entry date
+
+V11:
+
+-- From now each new individual will get into the skills table with default value of New
+-- Stripped ou of all GUI. Now is working strictly as script.
+-- Added 2 receiving arguments
+---- Host IP
+---- Source of the CVs
+
+V12:
+
+-- Changed Phone Scanner to use regex strip and then lookup for number from the non special chars line
+-- Changed lookup Folder to shared Z disk.
+-- Saving Folder changed as well to Z disk and marked by passed - date - service provider
+-- Name scanner changed to properly write the found name
+-- New table added MeetingsDate
