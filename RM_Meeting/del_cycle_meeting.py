@@ -32,14 +32,14 @@ for q in ret:
     if may_be_del:
         # TODO delete meeting
         print('rm unico', q['id'])
-        # vUnicko.delete_meeting(q['id'])
+        vUnicko.delete_meeting(q['id'])
         meet_deleted +=1
         if dbret:
             for cource in dbret:
                 print('rm co',dbret[0],cource[2],datetime.now().date() - cource[2])
                 # TODO rem mettingId from COUrse
                 clean_cource +=1
-                # RTG_DB.rm_unicoID_from_cource(cource[1])
+                RTG_DB.rm_unicoID_from_cource(cource[1])
 
 print("total of unicko meeting at start = ", len(ret))
 print('delete m',meet_deleted)
