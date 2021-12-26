@@ -1,7 +1,0 @@
-30 23 /usr/bin/python3 $MAIN.PY LOCATION$ >> $LOCATION FOR WANTED CRONTAB.LOG FILE$ 2>&1
-
-to view job:
-ps -o pid,sess,cmd afx | egrep -A20 "( |/)cron( -f)?$"
-
-to kill job:
-pkill -s <PID>
