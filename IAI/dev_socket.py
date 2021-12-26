@@ -156,7 +156,7 @@ class Dev_socket:
             dic_test['WAIT'].set(globals()['vDfWait'])
             wiat_time = int(dic_test['WAIT'].get())
 
-        LOGR('[%s:%s] wait for answer time %s'% (dic_test['ID_User_test'], dic_test['ST_Test_Name'],wiat_time))
+        # LOGR('[%s:%s] wait for answer time %s'% (dic_test['ID_User_test'], dic_test['ST_Test_Name'],wiat_time))
         n = 1
         while dic_test['port_Rx'] not in dev_socket.rec_data_dict:
             sleep(1)
@@ -203,7 +203,7 @@ class Dev_socket:
                 else:
                     sleep(1)
                     n += 1
-        LOGR('%s ended' % dic_test['ST_Test_Name'])
+        # LOGR('%s ended' % dic_test['ST_Test_Name'])
 
         print('%s ended' % dic_test['ID_User_test'])
         pass

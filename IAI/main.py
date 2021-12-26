@@ -231,12 +231,12 @@ class Tests_for_run:
             self.vLoop.set(1)
 
         while n <= int(self.vLoop.get()):
-            LOGR('run loop N%', n, )
+            print('run loop N%', n, )
             for key in self.tests_list:
                 if dev_socket.start_stop_test:
                     dev_socket.thread_run_test(self.tests_list[key], )
                 else:
-                    LOGR('Test aborted')
+                    print('Test aborted')
                     return
             n += 1
 
