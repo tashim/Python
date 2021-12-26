@@ -1,0 +1,4 @@
+Program Configuring:
+0. "Keywords.py" file: Change values to fit your local machine.
+1. Installing mysql package - $ pip install mysql-connector-python
+
