@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/IAI" />
+    <content url="file://$MODULE_DIR$/Lessons" />
+    <content url="file://$MODULE_DIR$/RM_Meeting" />
+    <content url="file://$MODULE_DIR$/Unicko_API_To_Evgeny" />
+    <content url="file://$MODULE_DIR$/Unico" />
+    <content url="file://$MODULE_DIR$/__CVReader7" />
+    <content url="file://$MODULE_DIR$/bmby" />
+    <content url="file://$MODULE_DIR$/findWord" />
+    <content url="file://$MODULE_DIR$/mail" />
+    <content url="file://$MODULE_DIR$/web_date" />
+    <content url="file://$MODULE_DIR$/wrem" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
