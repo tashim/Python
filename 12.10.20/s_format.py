@@ -1,0 +1,5 @@
+import urllib.request
+
+
+a = "https://storage.googleapis.com/unicko-recordings/313314.mp4?GoogleAccessId=signer@unicko-prod.iam.gserviceaccount.com&Expires=1603178423&Signature=hzT2VSllXFTqJ%2FIa7Sfe6w5uSCojP4e1%2Bn8AvVbRIoWVJ2vrKtIVuqnxzYf2y4ZmbD9gd0wX%2FvcyP9f8pCPvqqHABCuCexZIj7O1pCrJbH4b2KdV%2BIj3fckSPNjlQp7lBi%2FW6zJmxtJUmjDKgdkTw6mDSURWhwcZKnC6u4%2B0khijUsmaqscPFF2Z1wUfGALXSdz9OzEE3jbE8KrxJhfzMy61s5vdhhW20I072Akkp9F2iGeN0m59zKtKAmdgo6JoQ81SLQN6NJaspUlaFASfa6ADqyzCQEd0frmWSM2uLNY2gpDpBq54kj8rNk8msEcubbbFk%2FOraTmydqusxEjssg%3D%3D&response-content-disposition=attachment%3B%20filename%3Drecording_313314.mp4"
+s = urllib.request.urlopen(a).read().decode()
