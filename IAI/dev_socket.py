@@ -166,9 +166,6 @@ class Dev_socket:
                 return
         n = 0
 
-        print(type_test)
-        print(dic_test['cmp_ASCII'])
-        print(dic_test['cmp_HEX'])
         if type_test == 'CMP' or 'HEX' in type_test  or 'ASCII' in type_test :
             if 'HEX' in type_test :
                 cmp_text = self.hex_to_byte( dic_test['cmp_HEX'])
