@@ -11,6 +11,11 @@ from dev_socket import *
 vDfWait = 3
 vLoop = 1
 
+def dic_split(d,i1,i2):
+    li = list(d.items())
+    li.insert(i2,li.pop(i1))
+    d=dict(li)
+    return d
 
 def onFrameConfigure(canvas):
     # Reset the scroll region to encompass the inner frame
@@ -145,7 +150,8 @@ class Tests_for_run:
         names = "ID_User_test,Type_test," \
                 "ST_Test_Name,Device_name_Tx,Device_name_Rx,Packets_count,Rate," \
                 "Data_type,Data,user_test_type,cmp_with,WAIT"
-        col = 0
+        Label(self.frame_canvas, text=str('N%'),  borderwidth="1", relief="solid").grid(row=0, column=0, **paddings)
+        col = 1
         for lc_in in names.split(','):
             if lc_in == 'Packets_count':
                 name_lc = Label(self.frame_canvas, text='Count', borderwidth="1", relief="solid")
@@ -154,9 +160,11 @@ class Tests_for_run:
                 name_lc = Label(self.frame_canvas, text=lc_in, borderwidth="1", relief="solid")
                 name_lc.grid(row=0, column=col, **paddings)
             col += 1
+        Label(self.frame_canvas, text=str('Show'),  borderwidth="1", relief="solid").grid(row=0, column=col, **paddings)
         n = 1
         for key in self.tests_list:
-            col = 0
+            col = 1
+            Label(self.frame_canvas, text=str(n), borderwidth="1", relief="solid").grid(row=n, column=0, **paddings)
             for lc_in in names.split(','):
 
                 if lc_in == 'WAIT':
@@ -185,15 +193,40 @@ class Tests_for_run:
                     Label(self.frame_canvas, text=self.tests_list[key][lc_in], borderwidth="1", relief="solid"). \
                         grid(row=n, column=col, **paddings)
                 col += 1
-            Button(self.frame_canvas, text='Remove',
-                   command=lambda data=key: self.rem(data)) \
-                .grid(row=n, column=col + 6, **paddings)
+            vCheckbutton = BooleanVar()
+            chb = Checkbutton(self.frame_canvas,variable = vCheckbutton,)
+            chb['command'] = lambda d=self.tests_list[key],c=vCheckbutton: self.isChecked(d,c)
+            chb.grid(row=n, column=col, )
+            vCheckbutton.set(self.tests_list[key]['show'])
 
-            Button(self.frame_canvas, text='edit',
-                   command=lambda d=self.tests_list[key]: self.edit_test(d)) \
-                .grid(row=n, column=col + 5, **paddings)
+
+            Button(self.frame_canvas, text='Remove',command=lambda data=key: self.rem(data)) \
+                .grid(row=n, column=col + 2, **paddings)
+            Button(self.frame_canvas, text='edit',command=lambda d=self.tests_list[key]: self.edit_test(d)) \
+                .grid(row=n, column=col + 1, **paddings)
+            Button(self.frame_canvas, text='UP',command=lambda d=n: self.up(d)) \
+                .grid(row=n, column=col + 3, **paddings)
+            Button(self.frame_canvas, text='DWN',command=lambda d=n: self.down(d)) \
+                .grid(row=n, column=col + 4, **paddings)
             n += 1
         Label(self.frame_canvas, text='', borderwidth="1").grid(row=n+2, column=0, **paddings)
+
+    def up(self,n):
+        n=n-1
+        if n <=0:
+            return
+        self.tests_list = dic_split(self.tests_list,n,n-1)
+        self.show_list()
+
+    def down(self,n):
+        if n >=len(self.tests_list):
+            return
+        n=n-1
+        self.tests_list = dic_split(self.tests_list,n,n+1)
+        self.show_list()
+
+    def isChecked(self,d,chb):
+        d['show'] = chb.get()
 
     def rem(self, d):
         del (self.tests_list[d])
@@ -339,7 +372,9 @@ class Load_User_Test:
                        self.delete_userTest(d)).grid(row=row, column=22, )
                 row += 1
         Label(self.fr_c_l, text='',).grid(row=100, column=0, )
+
     def add_load(self, d):
+        d['show'] = True
         d['WAIT'] = StringVar()
         d['WAIT'].set(globals()['vDfWait'])
         self.master.add_test(d)
@@ -348,7 +383,6 @@ class Load_User_Test:
     def delete_userTest(self, d):
         DB.delete(d)
         self.get_from_db()
-
 
 class New_Test_wind:
     def __init__(self, master=None):
@@ -501,7 +535,6 @@ class edit_Test_wind:
         Label(self.top, text='Test name').grid(row=0, column=1, padx=5)
         Label(self.top, text='Num of packets').grid(row=0, column=2, padx=5)
         Label(self.top, text='Sending_Rate').grid(row=0, column=3, padx=5)
-
         Label(self.top, text=self.dic['Type_test']).grid(row=1, column=0, padx=5)
         Label(self.top, text=self.dic['ST_Test_Name']).grid(row=1, column=1, padx=5)
 
@@ -782,7 +815,6 @@ class New_Type_test_setup:
         run_list_top.show_list()
 
 
-
 class St_test_setup():
     def __init__(self,parent = None):
         self.parent = parent
@@ -915,7 +947,6 @@ class St_test_setup():
                 .grid(row=n, column=3)
             n += 1
         n = 99
-
 
 
 class Devices():

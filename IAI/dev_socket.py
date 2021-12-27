@@ -144,7 +144,8 @@ class Dev_socket:
         dd = b''
         for i in range(count):
             if not dev_socket.start_stop_test:
-                LOGR('%s Stoped' % dic_test['ST_Test_Name'])
+                if dic_test['show']:
+                    LOGR('%s Stoped' % dic_test['ST_Test_Name'])
                 print('%s Stoped' % dic_test['ID_User_test'])
                 break
             dd = self.send_to(dic_test)
@@ -162,7 +163,8 @@ class Dev_socket:
             sleep(1)
             n += 1
             if n > wiat_time:
-                LOGR('[%s:%s] test filed received 0' % (dic_test['ID_User_test'], dic_test['ST_Test_Name']))
+                if dic_test['show']:
+                    LOGR('[%s:%s] test filed received 0' % (dic_test['ID_User_test'], dic_test['ST_Test_Name']))
                 return
         n = 0
 
@@ -184,8 +186,8 @@ class Dev_socket:
                         sl -= 1
                     else:
                         break
-
-            LOGR('[%s:%s] sent %s rec %s result:%s' %
+            if dic_test['show']:
+                LOGR('[%s:%s] sent %s rec %s result:%s' %
                  (dic_test['ID_User_test'], dic_test['ST_Test_Name'], count, n, ('FAILED', "PASS")[n == count]))
         else:
             n = 0
@@ -197,7 +199,8 @@ class Dev_socket:
                         text = text.decode()
                     except:
                         text = str(text.hex())
-                    LOGR('[%s:%s:%s] :%s' % (dic_test['ID_User_test'], dic_test['ST_Test_Name'], c, text))
+                    if dic_test['show']:
+                        LOGR('[%s:%s:%s] :%s' % (dic_test['ID_User_test'], dic_test['ST_Test_Name'], c, text))
                     n = 0
                     c += 1
                 else:
