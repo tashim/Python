@@ -117,7 +117,7 @@ class DB_SQLL():
             self.cursor.execute(sql, (type_test, st_test_name, device_name_tx, device_name_rx))
             self.db.commit()
         except sqlite3.DatabaseError as er:
-            messagebox.showerror(title=None, message=er)
+            # messagebox.showerror(title=None, message=er)
             return str(er)
 
     def save_new_type(self, new_type):
@@ -188,6 +188,13 @@ class DB_SQLL():
             self.db.commit()
         except:
             self.db.rollback()
+
+    def delete_ST_test(self, id):
+        q = f"""DELETE FROM User_test WHERE User_test.StTest ='{id}';"""
+        q2 = f"""DELETE FROM standart_test WHERE ST_Test_Name='{id}';"""
+        self.cursor.execute(q)
+        self.cursor.execute(q2)
+        self.db.commit()
 
     def update_test_type(self, old, new):
         try:

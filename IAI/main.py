@@ -288,7 +288,7 @@ class Load_User_Test:
 
         Button(f_button, text='New Test', command=self.new_test). \
             pack(side='left', padx=5)
-        Button(f_button, text="STANDART TEST  SETUP", command=lambda: St_test_setup()). \
+        Button(f_button, text="STANDART TEST  SETUP", command=lambda: St_test_setup(self)). \
             pack(side='left', padx=5,)
         Button(f_button, text="Type TEST  SETUP", command=lambda: New_Type_test_setup(self)). \
             pack(side='left', padx=5)
@@ -773,11 +773,19 @@ class New_Type_test_setup:
         self.load_list()
         if self.parent:
             self.parent.get_from_db()
+        rm = []
+        for t in run_list_top.tests_list:
+            if run_list_top.tests_list[t]['Type_test'] == old:
+                rm.append(t)
+        for t in rm:
+            del run_list_top.tests_list[t]
+        run_list_top.show_list()
+
 
 
 class St_test_setup():
-    def __init__(self):
-
+    def __init__(self,parent = None):
+        self.parent = parent
         self.top = Toplevel()
         self.top.grab_set()
         self.top.title('Standard test setup')
@@ -819,8 +827,9 @@ class St_test_setup():
         self.dev_name_Rx = Combobox(fr_col_1, state="readonly", value=dev_names)
         self.dev_name_Rx.grid(row=1, column=3, padx=5)
 
-        Button(fr_col_1, text="Save New ST Test",
-               command=self.save_st_test).grid(row=2, column=0, pady=25)
+        Button(fr_col_1, text="Save New ST Test", command=self.save_st_test).grid(row=2, column=0, pady=5)
+        self.Log = StringVar()
+        Label(fr_col_1, text='Type of test',textvariable=self.Log).grid(row=1000, columnspan=10,column=0, padx=5)
         self.load_table()
 
     def load_table(self):
@@ -843,27 +852,44 @@ class St_test_setup():
             Label(frame, text=st[1],**opt).grid(row=row, column=1, **paddings)
             Label(frame, text=st[2],**opt).grid(row=row, column=2, **paddings)
             Label(frame, text=st[3],**opt).grid(row=row, column=3, **paddings)
+            Button(frame,text = 'Delete',**opt,command=lambda keyx=st[1]: self.rem(keyx))\
+                .grid(row=row, column=4, **paddings)
             row += 1
         Label(frame, text='',).grid(row=row, column=3, **paddings)
 
+    def rem(self,key):
+        DB.delete_ST_test(key)
+        self.load_table()
+        rm = []
+        if self.parent:
+            self.parent.get_from_db()
+        for t in run_list_top.tests_list:
+            if run_list_top.tests_list[t]['ST_Test_Name'] == key:
+                rm.append(t)
+        for t in rm:
+            del run_list_top.tests_list[t]
+        run_list_top.show_list()
+
 
     def save_st_test(self):
-
+        self.Log.set('')
         if self.t_n.get() == '':
-            print("showinfo", 'Test name is empty. Enter any name of test!')
+            self.Log.set('showinfo: Test name is empty. Enter any name of test!')
             return None
         dev_name_Tx = self.dev_name_Tx.get()
         if dev_name_Tx == '':
-            print("showinfo", 'Name of Device_Tx is empty. Choice any Name!')
+            self.Log.set('showinfo: Name of Device_Tx is empty. Choice any Name!')
             return None
         dev_name_Rx = self.dev_name_Rx.get()
         if dev_name_Rx == '':
-            print("showinfo", 'Name of Device_Rx is empty. Choice any Name!')
+            self.Log.set('showinfo: Name of Device_Rx is empty. Choice any Name!')
             return None
         if self.t_n.get() == '':
-            print("showinfo", 'Test name is empty. Enter any name of test!')
+            self.Log.set('showinfo: Test name is empty. Enter any name of test!')
             return None
-        DB.save_stand_test(self.opt_type.get(), self.t_n.get(), dev_name_Tx, dev_name_Rx)
+        ret = DB.save_stand_test(self.opt_type.get(), self.t_n.get(), dev_name_Tx, dev_name_Rx)
+        if  ret != None:
+            self.Log.set(ret)
         self.load_table()
 
 
@@ -890,42 +916,6 @@ class St_test_setup():
             n += 1
         n = 99
 
-    def add(self):
-        devises = DB.ports_by_dev()
-        err = ''
-        if self.new_name.get() == '':
-            err = 'name ? '
-
-        if self.new_name.get() in devises.keys():
-            err += 'name exist '
-        try:
-            int(self.new_pr.get())
-            int(self.new_pt.get())
-        except:
-            err += 'port ? '
-        if err == '':
-            DB.input_dev((self.new_name.get(), self.new_pt.get(), self.new_pr.get()))
-            self.update_table()
-        else:
-            self.log.set(err)
-
-    def rem(self, key):
-        DB.del_ports(key)
-        self.update_table()
-
-    def update_ports(self):
-        update_d = []
-        for key in self.n_tx.keys():
-            update_d.append((self.n_tx[key].get(), self.n_rx[key].get(), key))
-        DB.save_ports(update_d)
-        self.update_table()
-
-    def update_table(self):
-        self.load_from_db()
-        devises = DB.ports_by_dev()
-        for key in self.n_tx.keys():
-            self.n_tx[key].set(devises[key][0])
-            self.n_rx[key].set(devises[key][1])
 
 
 class Devices():
@@ -1021,6 +1011,7 @@ class Devices():
     def rem(self, key):
         DB.del_ports(key)
         self.update_table()
+
 
     def update_ports(self):
         update_d = []
