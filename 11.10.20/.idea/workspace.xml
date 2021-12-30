@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="85644ec0-8a35-4238-810b-d358d6a06d00" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iiqHQa5lY4hqYb0NZjG8xkN1o8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alexS\Documents\Python\pythonProject" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.py_lst3">
+    <configuration name="f_format" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/f_format.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="py_list" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py_list.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="py_list2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py_list2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="py_lst3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py_lst3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="string_list" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/string_list.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.py_lst3" />
+        <item itemvalue="Python.string_list" />
+        <item itemvalue="Python.py_list2" />
+        <item itemvalue="Python.py_list" />
+        <item itemvalue="Python.f_format" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85644ec0-8a35-4238-810b-d358d6a06d00" name="Default Changelist" comment="" />
+      <created>1602400672473</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602400672473</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2027" height="225" key="GridCell.Tab.0.bottom" timestamp="1602490700733">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="225" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1602490700733" />
+    <state width="2539" height="210" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1602408816720" />
+    <state width="2027" height="225" key="GridCell.Tab.0.center" timestamp="1602490700733">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="225" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1602490700733" />
+    <state width="2539" height="210" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1602408816720" />
+    <state width="2027" height="225" key="GridCell.Tab.0.left" timestamp="1602490700733">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="225" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1602490700733" />
+    <state width="2539" height="210" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1602408816720" />
+    <state width="2027" height="225" key="GridCell.Tab.0.right" timestamp="1602490700733">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="225" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1602490700733" />
+    <state width="2539" height="210" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1602408816720" />
+    <state width="2027" height="261" key="GridCell.Tab.1.bottom" timestamp="1602484754357">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="261" key="GridCell.Tab.1.bottom/0.0.2048.824@0.0.2048.824" timestamp="1602484754357" />
+    <state width="2027" height="261" key="GridCell.Tab.1.center" timestamp="1602484754357">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="261" key="GridCell.Tab.1.center/0.0.2048.824@0.0.2048.824" timestamp="1602484754357" />
+    <state width="2027" height="261" key="GridCell.Tab.1.left" timestamp="1602484754357">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="261" key="GridCell.Tab.1.left/0.0.2048.824@0.0.2048.824" timestamp="1602484754357" />
+    <state width="2027" height="261" key="GridCell.Tab.1.right" timestamp="1602484754357">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="2027" height="261" key="GridCell.Tab.1.right/0.0.2048.824@0.0.2048.824" timestamp="1602484754357" />
+    <state x="325" y="33" key="SettingsEditor" timestamp="1602404397000">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state x="325" y="33" key="SettingsEditor/0.0.2048.824@0.0.2048.824" timestamp="1602404397000" />
+  </component>
+</project>
