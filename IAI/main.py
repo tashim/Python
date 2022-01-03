@@ -96,6 +96,10 @@ class Tests_for_run:
         Label(f_top, text="LOOP").pack(side=LEFT, )
         Entry(f_top, textvariable=self.vLoop, width=3).pack(fill=X, **paddings, side=LEFT, )
 
+        Button(f_top, text='Load LIST', command=lambda: Load_List_Test(self)).pack(side=RIGHT, **paddings)
+        Button(f_top, text='Save LIST', command=lambda: Save_List_Test(self)).pack(side=RIGHT, **paddings)
+
+
         self.show_list()
         # ================================================================================
 
@@ -286,7 +290,125 @@ class Tests_for_run:
         app.destroy()
 
 
+class Load_List_Test:
+    def __init__(self, master):
+        self.master = master
+        self.top = Toplevel()
+        self.top.grab_set()
+        self.top.title('Load User tests')
+        w = app.winfo_screenwidth()
+        h = app.winfo_screenheight()
+        self.top.geometry('{}x{}'.format(int(w / 10 * 9), int(h / 10 * 4)))
+        print(master.tests_list)
+
+class Save_List_Test:
+    def __init__(self, master):
+        self.master = master
+        self.top = Toplevel()
+        self.top.grab_set()
+        self.top.title('Load User tests')
+        frame_medium = Frame(self.top)  # !!!!!!!!!!!!!!!!!!!!!!!!
+        frame_medium.pack(fill="both", expand=True, ipady=1)
+
+        canvas_port = Canvas(frame_medium, )
+
+        scroll_port = Scrollbar(frame_medium, orient="vertical", command=canvas_port.yview)
+        canvas_port.config(yscrollcommand=scroll_port.set)
+
+        scroll_port.pack(side="right", fill="y")
+        canvas_port.pack(fill="both", expand=True)
+
+        self.fr_col_1 = Frame(canvas_port)
+        canvas_port.create_window((4, 4), window=self.fr_col_1, anchor="nw")
+        self.fr_col_1.bind("<Configure>", lambda event, canvas_port=canvas_port: onFrameConfigure(canvas_port))
+
+        #
+        # Label(self.fr_col_1, text='Device').grid(row=0, column=0, sticky=NSEW)
+        # Label(self.fr_col_1, text='Port TX').grid(row=0, column=1, sticky=NSEW)
+        # Label(self.fr_col_1, text='Port Rx').grid(row=0, column=2, sticky=NSEW)
+
+
+        self.varData = StringVar()
+        self.varLog = StringVar()
+        Entry(self.top, width=15, textvariable=self.varData).pack()
+        Button(self.top, text='Save LIST', command=self.save).pack()
+        # Button(self.top, text='Save LIST', command=self.load).pack()
+        Label(self.top,text='', textvariable=self.varLog).pack()
+        self.load()
+
+    def clean(self):
+        for child in self.fr_col_1.winfo_children():
+            child.destroy()
+
+    def save(self):
+        name = self.varData.get().replace(':','').replace(',','').replace(' ','')
+        if name == "":
+            self.varLog.set('Name error')
+            return
+        if len(self.master.tests_list) <= 0 :
+            self.varLog.set('List of tests is empty')
+            return
+        d = ""
+        for key in self.master.tests_list:
+            t = self.master.tests_list[key]
+            d+= f"%s:%s:%s,"%(t['ID_User_test'],t['show'],t['WAIT'].get() )
+        DB.save_list_tests(name,d)
+        self.load()
+
+    def load(self):
+        self.clean()
+        paddings = {'padx': 1, 'ipadx': 1, 'pady': 2, 'ipady': 1, 'sticky': EW}
+        opt = {'relief': "solid"}
+
+        i = 0
+        Label(self.fr_col_1, text=' Name ', **opt).grid(row=i, column=0, **paddings)
+        Label(self.fr_col_1, text=' Count tests ', **opt).grid(row=i, column=1, **paddings)
+        i = i+1
+        for r in DB.load_list_tests():
+            di = {}
+            for d in r[1].replace(" ","").split(","):
+                if(d == ""):
+                    continue
+                t = d.split(':')
+                di[t[0]] = (t[1],t[2])
+            Label(self.fr_col_1, text=str(r[0]),**opt).grid(row=i,column=0,**paddings)
+            Label(self.fr_col_1, text=str(len(di.keys())),**opt).grid(row=i,column=1,**paddings)
+            Button(self.fr_col_1, text='upload',
+                   command = lambda c=di:self.upload(c)).grid(row=i,column=2)
+            Button(self.fr_col_1, text='del',
+                   command=lambda c=r[0]: self.delete(c)).grid(row=i,column=3)
+
+            i+=1
+        pass
+
+    def upload(self,d):
+        rez = DB.usertest_load(tuple(d.keys()))
+        drez = {}
+        for dic in rez:
+            dic["WAIT"] = StringVar()
+            dic["WAIT"].set(d[str(dic['ID_User_test'])][1])
+            dic["show"] = d[str(dic['ID_User_test'])][0]
+            drez[str(dic['ID_User_test'])] = dic
+            # print(dic['ID_User_test'])
+            # print(type(dic['ID_User_test']))
+            # print(tuple(d.keys()))
+            # print(d[str(dic['ID_User_test'])])
+            # print(type(tuple(d.keys())[0]))
+
+            # print(d[int(dic['ID_User_test'])])
+        self.master.tests_list = drez
+
+        # print(rez)
+        self.master.show_list()
+
+    def delete(self,d):
+        print(d)
+        DB.del_list_tests(d)
+        self.load()
+
+
 class Load_User_Test:
+
     def __init__(self, master):
         self.master = master
         self.top = Toplevel()
@@ -378,7 +500,7 @@ class Load_User_Test:
         d['WAIT'] = StringVar()
         d['WAIT'].set(globals()['vDfWait'])
         self.master.add_test(d)
-        self.get_from_db()
+        # self.get_from_db()
 
     def delete_userTest(self, d):
         DB.delete(d)
