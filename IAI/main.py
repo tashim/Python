@@ -4,25 +4,27 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter.ttk import Combobox
 
-from  Console import  *
+from Console import *
 from SQLLDB import *
 from dev_socket import *
 
 vDfWait = 3
 vLoop = 1
 
-def dic_split(d,i1,i2):
+
+def dic_split(d, i1, i2):
     li = list(d.items())
-    li.insert(i2,li.pop(i1))
-    d=dict(li)
+    li.insert(i2, li.pop(i1))
+    d = dict(li)
     return d
+
 
 def onFrameConfigure(canvas):
     # Reset the scroll region to encompass the inner frame
     canvas.configure(scrollregion=canvas.bbox("all"))
 
 
-def is_int(inStr):
+def is_int(inStr,c):
     if inStr == '': return True
     return inStr.isdigit()
 
@@ -96,9 +98,7 @@ class Tests_for_run:
         Label(f_top, text="LOOP").pack(side=LEFT, )
         Entry(f_top, textvariable=self.vLoop, width=3).pack(fill=X, **paddings, side=LEFT, )
 
-        Button(f_top, text='Load LIST', command=lambda: Load_List_Test(self)).pack(side=RIGHT, **paddings)
-        Button(f_top, text='Save LIST', command=lambda: Save_List_Test(self)).pack(side=RIGHT, **paddings)
-
+        Button(f_top, text='Save Load LIST', command=lambda: Save_List_Test(self)).pack(side=RIGHT, **paddings)
 
         self.show_list()
         # ================================================================================
@@ -154,7 +154,7 @@ class Tests_for_run:
         names = "ID_User_test,Type_test," \
                 "ST_Test_Name,Device_name_Tx,Device_name_Rx,Packets_count,Rate," \
                 "Data_type,Data,user_test_type,cmp_with,WAIT"
-        Label(self.frame_canvas, text=str('N%'),  borderwidth="1", relief="solid").grid(row=0, column=0, **paddings)
+        Label(self.frame_canvas, text=str('N%'), borderwidth="1", relief="solid").grid(row=0, column=0, **paddings)
         col = 1
         for lc_in in names.split(','):
             if lc_in == 'Packets_count':
@@ -164,7 +164,7 @@ class Tests_for_run:
                 name_lc = Label(self.frame_canvas, text=lc_in, borderwidth="1", relief="solid")
                 name_lc.grid(row=0, column=col, **paddings)
             col += 1
-        Label(self.frame_canvas, text=str('Show'),  borderwidth="1", relief="solid").grid(row=0, column=col, **paddings)
+        Label(self.frame_canvas, text=str('Show'), borderwidth="1", relief="solid").grid(row=0, column=col, **paddings)
         n = 1
         for key in self.tests_list:
             col = 1
@@ -198,38 +198,37 @@ class Tests_for_run:
                         grid(row=n, column=col, **paddings)
                 col += 1
             vCheckbutton = BooleanVar()
-            chb = Checkbutton(self.frame_canvas,variable = vCheckbutton,)
-            chb['command'] = lambda d=self.tests_list[key],c=vCheckbutton: self.isChecked(d,c)
+            chb = Checkbutton(self.frame_canvas, variable=vCheckbutton, )
+            chb['command'] = lambda d=self.tests_list[key], c=vCheckbutton: self.isChecked(d, c)
             chb.grid(row=n, column=col, )
             vCheckbutton.set(self.tests_list[key]['show'])
 
-
-            Button(self.frame_canvas, text='Remove',command=lambda data=key: self.rem(data)) \
+            Button(self.frame_canvas, text='Remove', command=lambda data=key: self.rem(data)) \
                 .grid(row=n, column=col + 2, **paddings)
-            Button(self.frame_canvas, text='edit',command=lambda d=self.tests_list[key]: self.edit_test(d)) \
+            Button(self.frame_canvas, text='edit', command=lambda d=self.tests_list[key]: self.edit_test(d)) \
                 .grid(row=n, column=col + 1, **paddings)
-            Button(self.frame_canvas, text='UP',command=lambda d=n: self.up(d)) \
+            Button(self.frame_canvas, text='UP', command=lambda d=n: self.up(d)) \
                 .grid(row=n, column=col + 3, **paddings)
-            Button(self.frame_canvas, text='DWN',command=lambda d=n: self.down(d)) \
+            Button(self.frame_canvas, text='DWN', command=lambda d=n: self.down(d)) \
                 .grid(row=n, column=col + 4, **paddings)
             n += 1
-        Label(self.frame_canvas, text='', borderwidth="1").grid(row=n+2, column=0, **paddings)
+        Label(self.frame_canvas, text='', borderwidth="1").grid(row=n + 2, column=0, **paddings)
 
-    def up(self,n):
-        n=n-1
-        if n <=0:
+    def up(self, n):
+        n = n - 1
+        if n <= 0:
             return
-        self.tests_list = dic_split(self.tests_list,n,n-1)
+        self.tests_list = dic_split(self.tests_list, n, n - 1)
         self.show_list()
 
-    def down(self,n):
-        if n >=len(self.tests_list):
+    def down(self, n):
+        if n >= len(self.tests_list):
             return
-        n=n-1
-        self.tests_list = dic_split(self.tests_list,n,n+1)
+        n = n - 1
+        self.tests_list = dic_split(self.tests_list, n, n + 1)
         self.show_list()
 
-    def isChecked(self,d,chb):
+    def isChecked(self, d, chb):
         d['show'] = chb.get()
 
     def rem(self, d):
@@ -290,17 +289,6 @@ class Tests_for_run:
         app.destroy()
 
 
-class Load_List_Test:
-    def __init__(self, master):
-        self.master = master
-        self.top = Toplevel()
-        self.top.grab_set()
-        self.top.title('Load User tests')
-        w = app.winfo_screenwidth()
-        h = app.winfo_screenheight()
-        self.top.geometry('{}x{}'.format(int(w / 10 * 9), int(h / 10 * 4)))
-        print(master.tests_list)
-
 class Save_List_Test:
     def __init__(self, master):
         self.master = master
@@ -322,18 +310,12 @@ class Save_List_Test:
         canvas_port.create_window((4, 4), window=self.fr_col_1, anchor="nw")
         self.fr_col_1.bind("<Configure>", lambda event, canvas_port=canvas_port: onFrameConfigure(canvas_port))
 
-        #
-        # Label(self.fr_col_1, text='Device').grid(row=0, column=0, sticky=NSEW)
-        # Label(self.fr_col_1, text='Port TX').grid(row=0, column=1, sticky=NSEW)
-        # Label(self.fr_col_1, text='Port Rx').grid(row=0, column=2, sticky=NSEW)
-
-
         self.varData = StringVar()
         self.varLog = StringVar()
         Entry(self.top, width=15, textvariable=self.varData).pack()
         Button(self.top, text='Save LIST', command=self.save).pack()
         # Button(self.top, text='Save LIST', command=self.load).pack()
-        Label(self.top,text='', textvariable=self.varLog).pack()
+        Label(self.top, text='', textvariable=self.varLog).pack()
         self.load()
 
     def clean(self):
@@ -341,18 +323,18 @@ class Save_List_Test:
             child.destroy()
 
     def save(self):
-        name = self.varData.get().replace(':','').replace(',','').replace(' ','')
+        name = self.varData.get().replace(':', '').replace(',', '').replace(' ', '')
         if name == "":
             self.varLog.set('Name error')
             return
-        if len(self.master.tests_list) <= 0 :
+        if len(self.master.tests_list) <= 0:
             self.varLog.set('List of tests is empty')
             return
         d = ""
         for key in self.master.tests_list:
             t = self.master.tests_list[key]
-            d+= f"%s:%s:%s,"%(t['ID_User_test'],t['show'],t['WAIT'].get() )
-        DB.save_list_tests(name,d)
+            d += f"%s:%s:%s," % (t['ID_User_test'], t['show'], t['WAIT'].get())
+        DB.save_list_tests(name, d)
         self.load()
 
     def load(self):
@@ -363,25 +345,25 @@ class Save_List_Test:
         i = 0
         Label(self.fr_col_1, text=' Name ', **opt).grid(row=i, column=0, **paddings)
         Label(self.fr_col_1, text=' Count tests ', **opt).grid(row=i, column=1, **paddings)
-        i = i+1
+        i = i + 1
         for r in DB.load_list_tests():
             di = {}
-            for d in r[1].replace(" ","").split(","):
-                if(d == ""):
+            for d in r[1].replace(" ", "").split(","):
+                if (d == ""):
                     continue
                 t = d.split(':')
-                di[t[0]] = (t[1],t[2])
-            Label(self.fr_col_1, text=str(r[0]),**opt).grid(row=i,column=0,**paddings)
-            Label(self.fr_col_1, text=str(len(di.keys())),**opt).grid(row=i,column=1,**paddings)
+                di[t[0]] = (t[1], t[2])
+            Label(self.fr_col_1, text=str(r[0]), **opt).grid(row=i, column=0, **paddings)
+            Label(self.fr_col_1, text=str(len(di.keys())), **opt).grid(row=i, column=1, **paddings)
             Button(self.fr_col_1, text='upload',
-                   command = lambda c=di:self.upload(c)).grid(row=i,column=2)
+                   command=lambda c=di: self.upload(c)).grid(row=i, column=2)
             Button(self.fr_col_1, text='del',
-                   command=lambda c=r[0]: self.delete(c)).grid(row=i,column=3)
+                   command=lambda c=r[0]: self.delete(c)).grid(row=i, column=3)
 
-            i+=1
+            i += 1
         pass
 
-    def upload(self,d):
+    def upload(self, d):
         rez = DB.usertest_load(tuple(d.keys()))
         drez = {}
         for dic in rez:
@@ -401,8 +383,7 @@ class Save_List_Test:
         # print(rez)
         self.master.show_list()
 
-    def delete(self,d):
-        print(d)
+    def delete(self, d):
         DB.del_list_tests(d)
         self.load()
 
@@ -434,9 +415,9 @@ class Load_User_Test:
         canv_load.create_window((4, 4), window=self.fr_c_l, anchor="nw")
         canv_load.config(yscrollcommand=scr_load.set)
 
-        canv_load.pack(fill="both", expand=True,)
-        f_list.pack(fill="both", expand=True,)
-        f_button.pack(fill="both", expand=False )
+        canv_load.pack(fill="both", expand=True, )
+        f_list.pack(fill="both", expand=True, )
+        f_button.pack(fill="both", expand=False)
         # self.fr_c_l=canv_load
         ##############################################
         self.get_from_db()
@@ -444,7 +425,7 @@ class Load_User_Test:
         Button(f_button, text='New Test', command=self.new_test). \
             pack(side='left', padx=5)
         Button(f_button, text="STANDART TEST  SETUP", command=lambda: St_test_setup(self)). \
-            pack(side='left', padx=5,)
+            pack(side='left', padx=5, )
         Button(f_button, text="Type TEST  SETUP", command=lambda: New_Type_test_setup(self)). \
             pack(side='left', padx=5)
 
@@ -493,7 +474,7 @@ class Load_User_Test:
                        command=lambda d=dic['ID_User_test']:
                        self.delete_userTest(d)).grid(row=row, column=22, )
                 row += 1
-        Label(self.fr_c_l, text='',).grid(row=100, column=0, )
+        Label(self.fr_c_l, text='', ).grid(row=100, column=0, )
 
     def add_load(self, d):
         d['show'] = True
@@ -506,6 +487,7 @@ class Load_User_Test:
         DB.delete(d)
         self.get_from_db()
 
+
 class New_Test_wind:
     def __init__(self, master=None):
         self.top = Toplevel()
@@ -515,8 +497,8 @@ class New_Test_wind:
         self.parent = master
         self.data_backup = ['', '']
         self.utest = {}
-        self.utest['cmp_ASCII']=''
-        self.utest['cmp_HEX']=''
+        self.utest['cmp_ASCII'] = ''
+        self.utest['cmp_HEX'] = ''
 
         Label(self.top, text='Type of test').grid(row=0, column=0, padx=5)
         Label(self.top, text='Test name').grid(row=0, column=1, padx=5)
@@ -572,7 +554,7 @@ class New_Test_wind:
         self.cb_cmp_change(self.cb_cmp_t)
 
     def cb_cmp_change(self, cb):
-        if 'ASCII' in cb.get() :
+        if 'ASCII' in cb.get():
             self.vcbCMP_data.set(self.utest['cmp_ASCII'])
             self.en_CmpData.grid(row=4, column=1, padx=5, columnspan=10, sticky=EW)
             self.var_changed(cb, self.vcbCMP_data)
@@ -938,7 +920,7 @@ class New_Type_test_setup:
 
 
 class St_test_setup():
-    def __init__(self,parent = None):
+    def __init__(self, parent=None):
         self.parent = parent
         self.top = Toplevel()
         self.top.grab_set()
@@ -983,7 +965,7 @@ class St_test_setup():
 
         Button(fr_col_1, text="Save New ST Test", command=self.save_st_test).grid(row=2, column=0, pady=5)
         self.Log = StringVar()
-        Label(fr_col_1, text='Type of test',textvariable=self.Log).grid(row=1000, columnspan=10,column=0, padx=5)
+        Label(fr_col_1, text='Type of test', textvariable=self.Log).grid(row=1000, columnspan=10, column=0, padx=5)
         self.load_table()
 
     def load_table(self):
@@ -995,23 +977,23 @@ class St_test_setup():
         paddings = {'padx': 1, 'ipadx': 1, 'pady': 2, 'ipady': 1, 'sticky': NSEW}
 
         li = DB.St_Test_List()
-        Label(frame, text='Type of test',**opt).grid(row=0, column=0, **paddings)
-        Label(frame, text='Test name',**opt).grid(row=0, column=1,**paddings)
-        Label(frame, text='Device_name_TX',**opt).grid(row=0, column=2,**paddings)
-        Label(frame, text='Device_name_RX',**opt).grid(row=0, column=3, **paddings)
+        Label(frame, text='Type of test', **opt).grid(row=0, column=0, **paddings)
+        Label(frame, text='Test name', **opt).grid(row=0, column=1, **paddings)
+        Label(frame, text='Device_name_TX', **opt).grid(row=0, column=2, **paddings)
+        Label(frame, text='Device_name_RX', **opt).grid(row=0, column=3, **paddings)
 
-        row =2
+        row = 2
         for st in li:
-            Label(frame, text=st[0],**opt).grid(row=row, column=0, **paddings)
-            Label(frame, text=st[1],**opt).grid(row=row, column=1, **paddings)
-            Label(frame, text=st[2],**opt).grid(row=row, column=2, **paddings)
-            Label(frame, text=st[3],**opt).grid(row=row, column=3, **paddings)
-            Button(frame,text = 'Delete',**opt,command=lambda keyx=st[1]: self.rem(keyx))\
+            Label(frame, text=st[0], **opt).grid(row=row, column=0, **paddings)
+            Label(frame, text=st[1], **opt).grid(row=row, column=1, **paddings)
+            Label(frame, text=st[2], **opt).grid(row=row, column=2, **paddings)
+            Label(frame, text=st[3], **opt).grid(row=row, column=3, **paddings)
+            Button(frame, text='Delete', **opt, command=lambda keyx=st[1]: self.rem(keyx)) \
                 .grid(row=row, column=4, **paddings)
             row += 1
-        Label(frame, text='',).grid(row=row, column=3, **paddings)
+        Label(frame, text='', ).grid(row=row, column=3, **paddings)
 
-    def rem(self,key):
+    def rem(self, key):
         DB.delete_ST_test(key)
         self.load_table()
         rm = []
@@ -1023,7 +1005,6 @@ class St_test_setup():
         for t in rm:
             del run_list_top.tests_list[t]
         run_list_top.show_list()
-
 
     def save_st_test(self):
         self.Log.set('')
@@ -1042,10 +1023,9 @@ class St_test_setup():
             self.Log.set('showinfo: Test name is empty. Enter any name of test!')
             return None
         ret = DB.save_stand_test(self.opt_type.get(), self.t_n.get(), dev_name_Tx, dev_name_Rx)
-        if  ret != None:
+        if ret != None:
             self.Log.set(ret)
         self.load_table()
-
 
     def load_from_db(self):
         for child in self.fr_col_1.winfo_children():
@@ -1164,7 +1144,6 @@ class Devices():
     def rem(self, key):
         DB.del_ports(key)
         self.update_table()
-
 
     def update_ports(self):
         update_d = []
