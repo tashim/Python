@@ -86,7 +86,7 @@ class Tests_for_run:
 
         Button(f_med, text='PING', command=self.ping).pack(side=LEFT, **paddings)
         Button(f_top, text='Load', command=lambda: Load_User_Test(self)).pack(side=LEFT, **paddings)
-        Button(f_top, text='Clear', command=self.clean).pack(side=LEFT, **paddings)
+        Button(f_top, text='Clear', command=self.clean_dic).pack(side=LEFT, **paddings)
         Button(f_med, text='PORTS SETUP', command=lambda: Devices()).pack(side=LEFT, **paddings)
         Button(f_med, text='LISTEN Port', command=lambda: Start_Port_to_Receive()).pack(side=LEFT, **paddings)
         Button(f_med, text='STOP Test', command=self.all_tests_stop).pack(fill=X, side=LEFT, **paddings)
@@ -243,9 +243,15 @@ class Tests_for_run:
         self.tests_list[dic['ID_User_test']] = dic
         self.show_list()
 
+    def clean_dic(self):
+        self.tests_list= {}
+        for child in self.frame_canvas.winfo_children():
+            child.destroy()
+
     def clean(self):
         for child in self.frame_canvas.winfo_children():
             child.destroy()
+
 
     def all_tests_start(self):
         dev_socket.start_stop_test = True
@@ -353,6 +359,7 @@ class Save_List_Test:
                     continue
                 t = d.split(':')
                 di[t[0]] = (t[1], t[2])
+
             Label(self.fr_col_1, text=str(r[0]), **opt).grid(row=i, column=0, **paddings)
             Label(self.fr_col_1, text=str(len(di.keys())), **opt).grid(row=i, column=1, **paddings)
             Button(self.fr_col_1, text='upload',
@@ -364,6 +371,7 @@ class Save_List_Test:
         pass
 
     def upload(self, d):
+        print(d)
         rez = DB.usertest_load(tuple(d.keys()))
         drez = {}
         for dic in rez:
@@ -371,13 +379,6 @@ class Save_List_Test:
             dic["WAIT"].set(d[str(dic['ID_User_test'])][1])
             dic["show"] = d[str(dic['ID_User_test'])][0]
             drez[str(dic['ID_User_test'])] = dic
-            # print(dic['ID_User_test'])
-            # print(type(dic['ID_User_test']))
-            # print(tuple(d.keys()))
-            # print(d[str(dic['ID_User_test'])])
-            # print(type(tuple(d.keys())[0]))
-
-            # print(d[int(dic['ID_User_test'])])
         self.master.tests_list = drez
 
         # print(rez)
@@ -481,7 +482,6 @@ class Load_User_Test:
         d['WAIT'] = StringVar()
         d['WAIT'].set(globals()['vDfWait'])
         self.master.add_test(d)
-        # self.get_from_db()
 
     def delete_userTest(self, d):
         DB.delete(d)

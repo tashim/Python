@@ -329,46 +329,47 @@ WHERE Standart_test.Device_name_Rx='%s' or Standart_test.Device_name_Tx='%s')
             ret.append(test)
         return ret
 
-    def usertest_load(self,id):
-        sql = f"""
-        SELECT ID_User_test,Type_test,ST_Test_Name,Device_name_Tx,Device_name_Rx,
-            Date,
-            Packets_count,
-            Rate,
-            Data
-        ,(SELECT Port_Tx FROM Device WHERE Device_name = Standart_test.Device_name_Tx ) as port_Tx
-        ,(SELECT Port_Rx FROM Device WHERE Device_name = Standart_test.Device_name_Rx ) as port_Rx
-        , Data_type
-        , user_test_type,
-        cmp_ASCII,cmp_HEX,
-        User_test.StTest
-        FROM User_test
-        INNER JOIN Standart_test on Standart_test.ST_Test_Name=User_test.StTest
-        where ID_User_test in {str(id)}
-    ;"""
-        self.cursor.execute(sql)
-        result = self.cursor.fetchall()
+    def usertest_load(self,id_list):
         ret = []
+        for id in id_list:
 
-        for u in result:
-            test = {}
-            test['ID_User_test'] = u[0]
-            test['Type_test'] = u[1]
-            test['ST_Test_Name'] = u[2]
-            test['Device_name_Tx'] = u[3]
-            test['Device_name_Rx'] = u[4]
-            test['Date'] = u[5]
-            test['Packets_count'] = u[6]
-            test['Rate'] = u[7]
-            test['Data'] = u[8]
-            test['port_Tx'] = u[9]
-            test['port_Rx'] = u[10]
-            test['Data_type'] = u[11]
-            test['user_test_type'] = u[12]
-            test['cmp_ASCII'] = u[13]
-            test['cmp_HEX'] = u[14]
-            test['StTest'] = u[15]
-            ret.append(test)
+            sql = f"""
+            SELECT ID_User_test,Type_test,ST_Test_Name,Device_name_Tx,Device_name_Rx,
+                Date,
+                Packets_count,
+                Rate,
+                Data
+            ,(SELECT Port_Tx FROM Device WHERE Device_name = Standart_test.Device_name_Tx ) as port_Tx
+            ,(SELECT Port_Rx FROM Device WHERE Device_name = Standart_test.Device_name_Rx ) as port_Rx
+            , Data_type
+            , user_test_type,
+            cmp_ASCII,cmp_HEX,
+            User_test.StTest
+            FROM User_test
+            INNER JOIN Standart_test on Standart_test.ST_Test_Name=User_test.StTest
+            where ID_User_test = {id}
+        ;"""
+            self.cursor.execute(sql)
+            result = self.cursor.fetchall()
+            for u in result:
+                test = {}
+                test['ID_User_test'] = u[0]
+                test['Type_test'] = u[1]
+                test['ST_Test_Name'] = u[2]
+                test['Device_name_Tx'] = u[3]
+                test['Device_name_Rx'] = u[4]
+                test['Date'] = u[5]
+                test['Packets_count'] = u[6]
+                test['Rate'] = u[7]
+                test['Data'] = u[8]
+                test['port_Tx'] = u[9]
+                test['port_Rx'] = u[10]
+                test['Data_type'] = u[11]
+                test['user_test_type'] = u[12]
+                test['cmp_ASCII'] = u[13]
+                test['cmp_HEX'] = u[14]
+                test['StTest'] = u[15]
+                ret.append(test)
         return ret
 
     def __del__(self):
